@@ -1,3 +1,18 @@
+## Políticas de acesso
+Solicitamos que toda e qualquer alteração a ser feita no documento seja criada a partir de uma nova `branch` a qual deverá ser solicitada que os `revisores` do código possam aceitar as alterações a serem feitas.
+
+### Criando uma branch
+```git
+ $ git checkout -b nome-da-branch
+```
+
+### Solicitando a revisão
+* No projeto, vá para a aba `Pull request`;
+* Selecione o botão `New pull request`;
+* Em `base`, selecione a branch `master` e em `compare` selecione a branch que você deseja a revisão;
+* Coloque uma breve descrição das alterações;
+* Crie o `pull request`.
+
 #Template TCC FGA-UnB
 
 Template para Trabalhos de Conclusão de Cursos (TCC) na Faculdade do
