@@ -1,0 +1,338 @@
+\chapter{Especificações de Casos de Uso}
+
+\section*{Introdução}
+    Este documento possui a finalidade de detalhar os casos de uso de forma a definir cada ação que o usuário pode tomar dentro do fluxo do programa. Dessa forma é possível entender de forma geral todos os caminhos que o usuário pode tomar, bem como a completa descrição de todas as suas funcionalidades.
+
+\section{UC01 \-- Login de Usuário}
+    \subsection{Descrição}
+        Permite que um usuário cadastrado efetue login no sistema.
+    \subsection{Ator(es)}
+        Usuário cadastrado no sistema.
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item O usuário deve ter acesso à internet;
+            \item O ator deve estar cadastrado no sistema.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item O usuário estará logado no sistema que poderá ter acesso às demais funcionalidades.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo principal começa quando o ator acessa a página inicial do aplicativo sem estar logado no sistema.
+        \begin{enumerate}
+            \item O usuário preenche os campos de login;
+            \item O sistema valida os dados preenchidos;
+            \item O sistema autentica os dados do usuário;
+            \item O sistema redireciona para a página inicial do aplicativo.
+        \end{enumerate}
+    \subsection{Fluxo de Exceção}
+        \subsubsection{FE01 \-- Dados Inválidos}
+        O fluxo se inicia com o usuário na página de login.
+            \begin{enumerate}
+                \item O usuário preenche os campos com dados inválidos;
+                \item O sistema valida os campos;
+                \item O sistema identifica a inconsistência dos dados e da base de dados;
+                \item O sistema retorna uma mensagem de erro;
+                \item O fluxo se encerra, retornando para o passo 1 do fluxo principal.
+            \end{enumerate}
+
+\section{UC02 \-- Cadastrar Usuários}
+    \subsection{Descrição}
+        Permite que novos usuários sejam cadastrados no sistema
+    \subsection{Ator(es)}
+        Qualquer um com acesso à plataforma.
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item O usuário deve ter acesso à internet;
+            \item O usuário não deve estar logado no sistema.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item O cadastro com sucesso de um novo usuário.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo principal começa quando o ator seleciona a opção de cadastrar um novo usuário no sistema.
+        \begin{itemize}
+            \item O ator acessa a página principal do aplicativo;
+            \item O ator acessa a página de cadastro de novos usuários;
+            \item O ator fornece as informações requisitadas pelo sistema;
+            \item O sistema realiza a validação dos dados [Ver FE01, Ver FE02];
+            \item O sistema cadastra um novo usuário;
+            \item O sistema confirma o cadastro com sucesso;
+            \item O fluxo principal termina.
+        \end{itemize}
+    \subsection{Fluxo de Exceção}
+        \subsubsection{FE01}
+            O fluxo de exceção FE01 começa quando os dados fornecidos pelo ator correspondem aos dados de um usuário já cadastrado.
+            \begin{itemize}
+                \item O sistema retorna uma mensagem de erro ao usuário informando que esse usuário já possui um cadastro válido;
+                \item O sistema passa para o 3° passo do fluxo principal.
+            \end{itemize}
+        \subsubsection{FE02}
+            O fluxo de exceção FE02 começa quando o tipo dos dados fornecidos pelo ator não são válidos.
+            \begin{itemize}
+                \item O sistema retorna uma mensagem de erro ao usuário informando que os dados inseridos não são válidos;
+                \item O sistema passa para o 3° passo do fluxo principal.
+            \end{itemize}
+
+\section{UC03 \-- Cadastrar Casa}
+    \subsection{Descrição}
+        Permite que o usuário efetue o cadastro de novas casas no aplicativo.
+    \subsection{Ator(es)}
+        Qualquer Usuário da Plataforma
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item O usuário deverá estar logado no sistema;
+            \item O usuário deverá ter acesso à internet;
+            \item A casa deverá conter os requisitos para cadastro.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item A nova casa será cadastrada com sucesso no sistema.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo é iniciado quando o usuário seleciona a opção de cadastro de uma nova casa
+        \begin{enumerate}
+            \item O sistema redireciona para a página de cadastro de casa;
+            \item O usuário preenche os campos de cadastros;
+            \item O sistema valida os dados;
+            \item O sistema persiste os dados da nova casa na base de dados
+            \item O sistema mostra uma mensagem de criação realizada com sucesso;
+            \item O fluxo se encerra.
+        \end{enumerate}
+    \subsection{Fluxo de Exceção}
+        O fluxo se inicia quando o usuário preenche errado o formulário de cadastro da casa.
+        \begin{enumerate}
+            \item O sistema valida os dados preenchidos;
+            \item O sistema identifica inconsistência;
+            \item O sistema mostra mensagem de erro ao usuário;
+            \item O fluxo se encerra, retornando para o passo 2 do fluxo principal.
+        \end{enumerate}
+
+\section{UC04 \-- Solicitar Controle da Casa}
+    \subsection{Descrição}
+        Permite ao usuário solicitar acesso às funcionalidades de controle da casa.
+    \subsection{Ator(es)}
+        Usuário sem acesso à rede da casa.
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item Usuário estar logado no sistema;
+            \item A casa a qual o usuário deseja ter acesso às funcionalidades deve estar cadastrada;
+            \item O usuário deve ter acesso à internet.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item Enviar solicitação de acesso ao administrador da casa.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo se inicia quando um usuário possui uma conta mas não está associado à nenhuma casa até o momento.
+        \begin{enumerate}
+            \item O usuário seleciona a opção de solicitação de acesso à casa;
+            \item O sistema redireciona para a página de busca de casas;
+            \item O usuário busca uma casa para poder solicitar o acesso;
+            \item O sistema busca na base os dados da casa pesquisada;
+            \item O sistema mostra os resultados para o usuário;
+            \item O usuário seleciona a casa que deseja ter acesso;
+            \item O sistema mostra uma mensagem de confirmação;
+            \item O usuário seleciona a opção “confirmar solicitação”;
+            \item O sistema envia a solicitação para o administrador da casa;
+            \item O fluxo se encerra.
+        \end{enumerate}
+
+\section{UC05 \-- Monitorar o Padrão de Acesso ao Controle da Casa}
+    \subsection{Descrição}
+        Permite os usuários titulares da casa à gerenciar o acesso de outros usuários.
+    \subsection{Ator(es)}
+        Usuários administradores da casa.
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item Estar logado no sistema;
+            \item Acesso à internet;
+            \item Ser administrador de uma casa.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item Modificar a permissão dos usuários sobre a casa.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo se inicia quando um administrador deseja modificar a permissão de acesso de outros usuários à casa.
+        \begin{itemize}
+            \item O administrador seleciona a opção de “Gerenciar acesso”;
+            \item O sistema redireciona para a página de gerência de acesso;
+            \item O administrador seleciona o usuário a ser editado;
+            \item O sistema mostra as opções de edição;
+            \item O administrador modifica a opção de acesso do usuário;
+            \item O administrador salva as alterações realizadas;
+            \item O sistema persiste as alterações e modifica a permissão dos usuários alterados;
+            \item O sistema mostra uma mensagem de sucesso;
+            \item O fluxo se encerra.
+        \end{itemize}
+
+\section{UC06 \-- Cadastrar Cômodos}
+    \subsection{Descrição}
+        Permite que o usuário cadastre novos cômodos na casa.
+    \subsection{Ator(es)}
+        Usuários Administradores da casa
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item Estar logado no sistema;
+            \item Possuir uma casa cadastrada;
+            \item Ser administrador de uma casa cadastrada.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item Cadastrar o cômodo desejado;
+            \item Possibilitar o controle do cômodo.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo se inicia quando um administrador da casa deseja cadastrar um novo cômodo da casa.
+        \begin{itemize}
+            \item O usuário preenche os dados do cômodo;
+            \item O sistema valida os campos preenchidos;
+            \item O sistema persiste o novo cômodo no banco de dados;
+            \item O sistema mostra mensagem de sucesso ao usuário;
+            \item O fluxo se encerra.
+        \end{itemize}
+    \subsection{Fluxo de Exceção}
+        \subsubsection{FE01}
+            O fluxo se inicia quando o administrador preenche campos erroneamente.
+            \begin{itemize}
+                \item O sistema valida os campos preenchidos;
+                \item O sistema identifica as inconsistências nos dados;
+                \item O sistema mostra uma mensagem de erro ao administrador;
+                \item O fluxo se encerra, retornando para o passo 1 do fluxo principal.
+            \end{itemize}
+
+\section{UC07 \-- Editar Cômodos}
+    \subsection{Descrição}
+        Permite que o usuário edite cômodos já existentes da casa.
+    \subsection{Ator(es)}
+        Usuários com permissões administrativas da casa.
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item Possuir acesso de administrador da casa;
+            \item Acesso à internet;
+            \item Estar logado no sistema;
+            \item Possuir um cômodo da casa cadastrado no sistema.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item Salvar as alterações de edição para todos os usuários;
+            \item Manter histórico de alterações do cômodo.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo se inicia quando o administrador deseja editar os cômodos cadastrados.
+        \begin{enumerate}
+            \item O usuário seleciona o cômodo a ser editado;
+            \item O sistema redireciona para a página de edição do cômodo selecionado;
+            \item O usuário altera os campos desejados;
+            \item O sistema valida os campos;
+            \item O sistema persiste os dados corretos na base de dados;
+            \item O sistema mostra uma mensagem de sucesso de edição para o usuário;
+            \item O fluxo se encerra.
+        \end{enumerate}
+
+\section{UC08 \-- Monitorar Dados}
+    \subsection{Descrição}
+        Permite mostrar ao usuário todo o registro e monitoramento dos dados captados pelos sensores instalados na casa.
+    \subsection{Ator(es)}
+        Proprietários e/ou funcionários da Casa.
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item Estar logado no sistema;
+            \item Estar ligado à uma casa;
+            \item Possuir acesso à internet;
+            \item Casa possuir cômodos cadastrados e seus respectivos sensores.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item Mostrar os resultados dos monitoramentos em forma de gráficos ou tabelas, de maneira clara e descritiva.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        \begin{enumerate}
+            \item O Usuário clica no botão referente ao cômodo o qual se deseja obter as informações;
+            \item O usuário será enviado para uma página que contém as informações captadas pelos sensores;
+            \item As informações serão exibidas;
+            \item Será disponibilizado a opção de voltar ao menu anterior.
+        \end{enumerate}
+    \subsection{Fluxo de Exceção}
+        \subsubsection{FE01 - Validação do Sensor}
+            No Passo 2 do fluxo principal, deverá haver sensores ativos captando as informações, caso indisponível, será exibida uma mensagem de erro no quadro da informação.
+
+\section{UC09 \-- Controlar Cômodos}
+    \subsection{Descrição}
+        Permitir controlar à distância os cômodos e seus respectivos dispositivos cadastrados.
+    \subsection{Ator(es)}
+        Administrador(es) da Casa.
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item Acesso à internet;
+            \item Estar logado;
+            \item Ter acesso à casa do cômodo em questão.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item Modificar o estado dos componentes eletrônicos dos cômodos por meio do controle via aplicativo.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo se inicia quando o administrador deseja controlar os dispositivos cadastrados nos cômodos.
+        \begin{enumerate}
+            \item O usuário seleciona o cômodo a ser controlado;
+            \item O sistema redireciona para a página de controle do cômodo;
+            \item O usuário realiza os devidos controles;
+            \item O sistema envia a requisição de edição para a central de controle;
+            \item O sistema recebe a resposta da central de controle;
+            \item O sistema notifica ao usuário sobre a resposta recebida;
+            \item O fluxo se encerra.
+        \end{enumerate}
+
+\section{UC10 \-- Gerar Relatórios}
+    \subsection{Descrição}
+        Permitir a geração de relatórios a partir dos dados obtidos no monitoramento da casa.
+    \subsection{Ator(es)}
+        Administrador(es) da Casa.
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item Acesso à internet;
+            \item Estar logado no sistema;
+            \item Possuir permissão de administrador para a residência em questão.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item Permitir o download do relatório;
+            \item Enviar relatório para os e-mails dos administradores em questão;
+            \item Salvar histórico de relatórios.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo se inicia quando o administrador deseja extrair o relatório de controle da casa.
+        \begin{enumerate}
+            \item O sistema realiza a busca de todos os históricos de controle da casa na base de dados;
+            \item O sistema monta um arquivo com os dados organizados por cômodo e data;
+            \item O sistema mostra o relatório ao usuário, e envia o mesmo para todos os administradores da residência via e-mail;
+            \item O fluxo se encerra.
+        \end{enumerate}
+
+\section{UC11 \-- Notificar Usuário}
+    \subsection{Descrição}
+        Permitir a exibição de notificações para os usuários sobre os acontecimentos na casa.
+    \subsection{Ator(es)}
+        Sistema.
+    \subsection{Pré-condições}
+        \begin{itemize}
+            \item Possuir uma conta no aplicativo associado à casa que está notificando.
+            \item Acesso à internet.
+        \end{itemize}
+    \subsection{Pós-condições}
+        \begin{itemize}
+            \item Notificar todos os usuários envolvidos com a casa em questão;
+            \item Notificar de maneira descriptiva sobre o que esta sendo relatado.
+        \end{itemize}
+    \subsection{Fluxo Principal}
+        O fluxo se inicia quando a central de controle identifica alguma inconsistência e envia uma mensagem para o servidor do aplicativo.
+        \begin{enumerate}
+            \item O sistema recebe a mensagem da central de comando;
+            \item O sistema valida a mensagem;
+            \item O sistema identifica o teor da mensagem;
+            \item O sistema envia uma notificação para todos os administradores da residência;
+            \item O fluxo se encerra.
+        \end{enumerate}
