@@ -1,0 +1,46 @@
+\chapter{Sistema de Automação}
+\section{Internet das Coisas (IoT)}
+\par Essa definição vem com o intuito de explicar este conceito que se aplica no conjunto do trabalho como um todo.
+\par O termo Internet das Coisas (IoT) foi criado e introduzido à humanidade por um dos pioneiros tecnológicos atuais chamado Kevin Ashton, que, por meio de sensores “onipresentes” conseguiu conectar o mundo físico à Internet. Utilizando mecanismos eletrônicos como Raspberry ou Arduinos, que permite a conexão com a Internet e serve como um centro de controle, é possível construir objetos como geladeira, fogão, sistema de iluminação, portão, porta, cafeteira, sistema de irrigação, jardinagem, etc, para serem “coisas” conectadas à internet, e isso abre portas para uma gama de possibilidades onde o limite é a criatividade e, é claro, o custo. A principal ideia de conseguir conectar objetos físicos com a Internet é permitir que tais objetos ou um conjunto deles sejam manipulados por meio de uso remoto, ou seja, sem que haja a necessidade de estar no mesmo local do objeto para poder controlá-lo.
+\par O avanço de outros tipos de tecnologias, como algoritmos de inteligência artificial trazem um enorme avanço na IoT, visto que pode-se construir não somente objetos conectados à internet e sim os chamados smart objects ou objetos inteligentes, que visam realizar atividades por uso de machine learning e aprendizado de padrões. Um exemplo não muito inteligente seria uma cafeteira que, por alguns dias identifica um padrão de comportamento de seu usuário e identifica os horários específicos de cada dia da semana que o mesmo costuma tomar seu café. Com isso, a máquina consegue “aprender” sobre o seu “dono” e, sem que o mesmo tenha que solicitar o café, a máquina já deixará pronto nas horas de costume.
+\par Um outro ponto interessante é o uso de sensores juntamente com a internet das coisas, visto que é possível uma via de mão dupla: não só o usuário envia comandos para serem executados pelas “coisas”, mas elas podem detectar alguns sinais por meios de sensores e dizer ao usuário que necessitam fazer algo. Por exemplo: um jardim que possui diversas plantas e um sistema de irrigação. Pode existir um sensor que observa a umidade do solo para saber se as plantas precisam ou não de irrigação. Com isso, é possível o sistema de controle de irrigação notifique o usuário que o solo está em um nível que necessite de água, permitindo que o usuário responda com uma ordem ou comando, e, assim, o sistema realize a tarefa de irrigar o jardim.
+
+\subsection{Integração com Smart Grid e Internet Das Coisas}
+\par Todos os equipamentos da casa estarão interconectados, e com as informações de eficiência disponibilizadas pelo aplicativo será possível definir parâmetros de  consumo e assim maximizar a eficácia de todo o sistema.
+
+\section{Controle Energético}
+\par O controle energético será feito por meio de um relógio inteligente, um dos componentes do Smart Grid, interligado ao aplicativo que será capaz de informar quanta energia está sendo consumida e quanto está sendo injetada na rede, quais os equipamentos que estão consumindo mais energia e uma possível estimativa de fatura caso não seja possível zerar a conta por meio da produção de energia pelas células fotovoltaicas.
+
+\section{Controle da casa}
+\par Nesta parte serão apresentados os sensores que estabelecem o controle dos equipamentos da casa, e definem as informações que chegam ao aplicativo.
+
+\subsection{Sistema de Segurança}
+\par O sistema de segurança é composto por câmeras, sensores de presença, de temperatura, detectores de gases, estes serão descritos detalhadamente mais à frente.
+\par O sistema funcionará de duas formas, a primeira é feita de forma independente do morador, essa forma se refere a situações de detecção de gases nocivos ao ser humano e incêndios, assim, quando um gás nocivo for detectado o morador receberá o aviso, em caso de temperatura muito elevada detectada pelo sensor de temperatura será emitido o aviso da suspeita de um incêndio para o morador.
+\par A outra forma do sistema é ativada pelo morador por meio do aplicativo de smartphone, é o modo de vigilância da residência. Essa forma de segurança é feita através das câmeras e dos detectores de movimento, assim, quando o morador ativar o modo de vigilância, os detectores de presença, caso estimulados, irão ativar a gravação das câmeras e enviaram um alerta ao celular do morador que o avisará sobre uma possível invasão em sua residência e irá registrar tudo no HDD até que o morador desative o alerta no celular. O morador poderá estipular horários para ativação automática desse sistema de vigilância.
+
+\subsection{Sensor de gás}
+\par Para maior conforto e segurança, em relação a incêndios, gases inflamáveis ou tóxicos, foi escolhido o sensor de gás e fumaça MQ-2. Este sensor na presença dos gases inflamáveis (como GLP, i-butano, metano, álcool, hidrogênio) e na presença de fumaça (CO2), aciona o sistema de aviso, podendo-se assim evitar prováveis incêndios, explosões ou que o usuário sofra intoxicação por gás.  É um sensor semicondutor com um encapsulamento em “Baquelite” (polímero formado por fenol formaldeído), que tem uma faixa de medição de concentração que vai de 300 à 10000 ppm e funciona em uma faixa de temperatura de -20 a 50°C. Sua maior precisão está em 20°C, com aproximadamente 65% de umidade.
+\par Para a escolha do sensor que mais se adequasse ao problema foi feita uma pesquisa e comparação entre alguns sensores do mercado.
+
+% Colocar tabelas aqui
+
+\subsection{Sensor de temperatura/umidade}
+\par Para obter informações sobre temperatura e umidade da casa, a escolha feita foi o sensor DHT11. Este sensor capta dados tanto de temperatura quanto de umidade. A parte de medição da temperatura é composta de um termoresistor feito com materiais semicondutores (a este conjunto também denomina-se termistor). O termistor desse sensor é do tipo NTC (Negative Temperature Coefficient), ou seja, a resistência é inversamente proporcional a temperatura. Já a medição da umidade nesse sensor é feita através de um elemento capacitivo.
+\par A escolha desse sensor, além de cumprir duas tarefas necessárias ao projeto, decorre de algumas vantagens que ele apresenta, como a medição da temperatura e umidade em uma única porta e uma biblioteca muito completa.
+\par Suas capacidades atendem a necessidade do projeto. Ele tem uma faixa de medida de 20 à 90\% RH com precisão de ± 5\% para umidade e de 0 à 50°C com precisão de ± 2°C para temperatura. Apesar de ser menos capaz que sua versão DHT22, que possui uma faixa de medida maior e mais precisa, o DHT11 cumpre os requisitos para o projeto e é mais barato.
+
+\subsection{Sensor de presença}
+\par Há diversas maneiras de detectar a presença de uma pessoa em determinado ambiente. Dentre as opções encontradas no mercado, a detecção de movimento é a melhor alternativa, uma vez que dentro desta categoria de sensores há diversas divisões em sub-grupos que dizem respeito ao funcionamento do sensor, onde cada qual possui uma usabilidade específica.
+\par Como o sensor está inserido no escopo de uma casa, onde não é necessário grandes precisões e longos alcances (como o caso de sensores ultra sônicos, que necessitam de maior custo de mão de obra e manutenção), o melhor modelo a ser utilizado são os PIR (Passive InfraRed ou infravermelhos passivos).
+\par Para a definição do sensor adotado na construção da casa foi analisado uma lista de sensores encontrados no mercado, pela grande quantidade de fabricantes desse sensores, foi feita a avaliação através de amostragem priorizando a acessibilidade ao modelo.
+
+% Colocar tabelas aqui
+
+\par Comparando os modelos avaliados foi escolhido o modelo qa25 da qualitronix, essa escolha foi feita pelo produto apresentar baixo custo e não prejudicar os requisitos do projeto. Porém se avaliar apenas o parâmetro custo podemos ver que ele empata com a opção 2 da ForceLine, para o critério o desempate foi estabelecido que as funcionalidades que agregam maior proveito ao projeto como alcance e facilidade de instalação fossem acatadas, prejuízos como ponto cegos que a linha qa25 trás pode ser sanado facilmente com a posição que o sensor for instalado, por esse motivo foi desconsiderado esse problema.
+
+\subsection{Câmera de segurança}
+\par Visando maior praticidade e segurança, a câmera de vídeo IP, foi escolhida devido a possibilidade de acessá-la e controlá-la via rede IP, como a LAN, Intranet ou Internet. Usando-se um navegador web e uma conexão de Internet de alta velocidade, pode-se ter acesso ao vídeo registrado em tempo real, em alguns casos, até áudio, de qualquer local que esteja. É uma câmera que dispensa o uso computador ou DVR para enviar as imagens à internet. Ela faz isso através de um endereço de IP, onde a conexão da câmera com a internet pode ser feita através de um cabo de rede ou da rede sem fio WIFI. As imagens podem ser vistas através de aplicativos de celular ou softwares de computador gratuitos, sem necessidade de retirar o cartão de memória da câmera.
+\par Para a definição da câmera a ser empregada na casa, foi analisada uma lista das que estão disponíveis no mercado. Pela grande variedade de tipo, modelo e marcas, foi realizada a avaliação comparativa priorizando-se a acessibilidade.
+
+% Colocar tabelas aqui

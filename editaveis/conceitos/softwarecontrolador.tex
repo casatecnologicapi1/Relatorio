@@ -1,0 +1,85 @@
+\section{Software Controlador}
+
+\subsection{Visão Geral}
+\par O software de controle será capaz de mostrar o consumo energético, assim como realizar as operações desejadas pelo usuário.
+
+\subsection{Requisitos do Software}
+
+\subsubsection{Problema a Ser Resolvido}
+\par O problema a ser solucionado pelo software está representado na seguinte tabela:
+
+% Colocar tabela aqui.
+
+\subsubsection{Requisitos Funcionais}
+\par Foram levantados os seguintes requisitos funcionais relacionados ao funcionamento do software:
+
+% Colocar tabela aqui.
+
+\subsubsection{Requisitos Não Funcionais}
+\par Foram levantados os seguintes requisitos não funcionais relacionados ao funcionamento do software:
+
+% Colocar tabela aqui.
+
+\subsection{Casos de Uso}
+
+\subsubsection{Sobre os Casos de Uso}
+\par Visando uma maior objetividade deste documento, o detalhamento dos casos de uso aqui apresentados encontra-se em anexo no documento de Especificações de Casos de Uso.
+
+\subsubsection{Diagrama de Casos de Uso}
+
+% Colocar imagem aqui
+
+\subsubsection{Descrição dos Casos de Uso}
+
+% Colocar tabela aqui
+
+\subsection{Implementação}
+\subsubsection{Tecnologia e Arquitetura}
+\par O software será desenvolvido utilizando os frameworks Ruby on Rails e Ionic para gerar a portabilidade necessária entre plataformas com a finalidade de atender aos requisitos do usuário.
+\par Utilizará uma arquitetura de software MVC com modificações por conta do Ionic framework, que insere algumas camadas estruturais entre as camadas Controller e a View. Como representado na imagem a seguir:
+
+% Colocar imagem aqui
+
+\par A camada Model é o lugar onde os dados são estruturados, consultados e validados. Ela se conecta diretamente com a camada de controle, pois a camada de controle que, através do input da camada de visão, irá definir quais dados serão consultados para que a camada de modelo faça conexão com a base de dados, e retorne sua resposta baseando-se nos dados analisados ou alterados.
+\par A camada View é a responsável por todas as interações com o usuário e também fará contato com a camada de controle para definir quais informações serão mostradas para o usuário. As principais funções da camada de visão são mostrar a interface gráfica para os usuários e fazer a comunicação com a camada de controle.
+\par Por usarmos o framework Ionic, são criadas as camadas Ionic Services, Ionic Controllers e Ionic Routes que implementam as funções de interface e portanto, a portabilidade da aplicação para sistemas Android, iOS, Windows Phone e Web.
+\par A camada Controller é a camada que faz a ligação entre usuário e os dados, tendo vital importância dentro da arquitetura de nosso sistema. Os principais métodos que serão implementados estão na camada de controle. Para que essa camada execute os métodos ela recebe os comandos passados pelo usuário através da camada de visão e manipula os dados recebidos da camada de modelo. Para realizar todas as ações e navegação no sistema, esta camada utiliza das rotas da aplicação, na figura representada como a camada Rails Routes, para realizar suas funções.
+
+\subsubsection{Tratamento de Dados}
+\par Os dados a serem manipulados pelo software de controle serão recebidos do sistema de automação continuamente no formato de strings (conjuntos de caracteres, semelhante a texto). Estes dados serão armazenados no banco de dados do sistema e serão utilizados de acordo com as necessidades do usuário.
+\par Caso o usuário utilize de algum recurso do software que precise do sistema de automação para ser realizado, como por exemplo, apagar a luz da garagem, o software de controle enviará comandos para o sistema de automação para que o mesmo realize a tarefa e mande de volta uma resposta.
+\par Segue abaixo uma breve representação da transmissão de dados e da comunicação dos sistemas.
+
+\subsection{Logo do Aplicativo}
+
+% Colocar imagem aqui
+
+\subsection{Interface Com o Usuário}
+
+\subsubsection{Tela Inicial}
+
+% Colocar imagem aqui
+
+\par Pode-se observar os cômodos que estão sendo monitorados pelo sistema inteligente da casa e que cada um dos sensores e equipamentos podem ser monitorados e controlados mediante ao uso do sistema. Ao clicar em Garagem, o sistema redireciona para a área de descrição da mesma, mostrada na tela a seguir.
+
+\subsubsection{Área de Controle de Cômodo Específico (Garagem)}
+
+% Colocar imagem aqui
+
+\par Área de controle de cômodos específicos, aqui ilustrada a da garagem da casa, pode-se visualizar todas as informações do sistema relacionadas ao cômodo, como consumo, sensores, temperatura ambiente, etc.
+\par É possível também alertar ao usuário sobre as informações de consumo de energia, umidade relativa do local, movimentação, portão aberto, etc.
+\par Tudo isso pode ser acessado em detalhes clicando em sensores, na próxima tela.
+
+\subsubsection{Tela de Informação dos Sensores}
+
+% Colocar imagem aqui
+
+\par Aqui, é possível visualizar com maior detalhe as informações que estão sendo coletadas pelo sistema de integração da casa. É possível também receber notificações específicas em relação a cada tipo de sensor utilizado.
+\par Essa tela permite que o usuário clique em configurações e realize as devidas tarefas em relação aos dispositivos controlados, como portão, luzes, etc, mostrados na tela a seguir.
+
+\subsubsection{Tela de Configuração de Dispositivos}
+
+% Colocar imagem aqui
+
+\par Nesta tela é possível configurar todos os dispositivos do sistema disponíveis no cômodo, podendo controlar as luzes que ficam acesas, a intensidade das mesmas, abrir e fechar o portão por meio do switch, etc.
+\par Com as configurações sendo alteradas, o sistema calcula em tempo real o consumo médio daquele cômodo com as novas configurações.
