@@ -8,4 +8,8 @@ tcc.log
 tcc.pdf
 tcc.synctex.gz
 tcc.toc
+tcc.fdb_latexmk
+tcc.fls
+tcc.ilg
+tcc.ind
 figuras/capa-eps-converted-to.pdf
