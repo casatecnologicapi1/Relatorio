@@ -1,0 +1,32 @@
+\chapter{Protótipo}
+
+\section{Sobre a Prototipagem}
+\par Um protótipo é comumente definido como uma versão preliminar de algum projeto, seja um projeto de carro, software ou construções, sendo que o mesmo deve portar características correspondentes com a proposta e finalidade do projeto.
+\par A prototipagem em si possui no mínimo duas etapas que culminam no desenvolvimento dos protótipos de baixa e alta fidelidade.
+\par Durante a primeira etapa é feita a concepção das características do produto e a elaboração de um esboço de como o produto deve se apresentar ou se comportar. Ao produto gerado pela primeira etapa damos o nome de protótipo de baixa fidelidade.
+\par Durante a segunda etapa é feito o aprofundamento do protótipo de baixa fidelidade, geralmente com o feedback dos stakeholders, sendo que este novo protótipo, chamado de protótipo de alta fidelidade, deve ser o mais parecido possível com o produto final. Porém não é necessário que o mesmo seja feito utilizando as mesmas tecnologias do produto final.
+\par A prototipagem de um software é uma técnica bastante utilizada para o entendimento dos requisitos e para a validação do projeto com um cliente.
+\par Para um melhor entendimento dos requisitos do software controlador da automação residencial, um protótipo de alta fidelidade foi criado pela equipe responsável pela plataforma.
+
+\section{Sobre o Protótipo do Software}
+\par O protótipo de alta fidelidade do software será um dos artefatos desenvolvidos pela equipe para apresentação à banca avaliadora. O protótipo tem como propósito ilustrar como será implementada a interface entre o usuário e todo o sistema de automação residencial.
+\par Neste protótipo serão elaboradas as telas mais importantes da aplicação, sendo que estas possuem como finalidade apenas a demonstração da interface.
+\par Devido ao prazo, escopo e dificuldade do projeto, a equipe optou por realizar a prototipagem do software como um protótipo de alta fidelidade, complementando os outros protótipos. As funções simuladas pelo protótipo serão apresentadas com maior enfoque na próxima seção deste documento.
+
+\section{Funções Simuladas pelo Protótipo do Software}
+\par O protótipo tem como finalidade principal a simulação de ações do usuário em sua interação com o software. O protótipo consistirá de representações gráficas, capazes de interação, das telas de interface do software com o usuário.
+\par Assim, o protótipo será capaz de mostrar de forma eficiente como se dará a transmissão de informações entre o sistema, com todos os seus dados coletados por sensores, e o usuário do sistema.
+
+\section{Sobre o Protótipo do Hardware}
+\par O protótipo tem como objetivo mostrar o operação de cada tipo de sensor empregado ao projeto, que são  o sensor de umidade e temperatura, gases inflamáveis e fumaça, sensor de presença isso implementados ao microcontrolador Arduino. O arduino está conectado via USB à Raspberry, em que a Raspberry com o sistema operacional Raspbian instalado com a ide do arduino instalado. A versão do Arduino utilizada é a versão UNO R2. Para poder simular as câmeras de segurança, é utilizado uma webcam, conectada via USB, o drive da webcam também está instalado no sistemas da Raspberry. Para representar os aparelhos e iluminação conectados ao sistemas, são utilizados LEDs, porque a forma como se comporta aos comando do Arduino é o mesma. Para programar o Arduino é utilizado a IDE do arduino , programando em em  linguagem C++ para a plataforma Arduino, utilizando as bibliotecas disponível para o uso dos sensores analógicos.  Para se comunicar com o arduino, é utilizado o monitor serial da IDE, assim pode-se enviar comando e receber informações via serial.
+\par Para simular a comunicação SSH, é utilizado o VNC, que tem função idêntica, porém depende do servidor que fornece o programa do VNC. Para testar o acesso remoto pela rede, é utilizado um computador que tenha o VNC instalado, independente do sistemas sistema operacional desta máquina.
+\par O material utilizado no protótipo é:
+\begin{itemize}
+    \item 1 Raspberry;
+    \item 1 Arduino UNO R2;
+    \item 1 sensor de temperatura e umidade DHT11;
+    \item 1 sensor de gases tóxicos MQ-2;
+    \item 1 sensor de presença Qualitronix QA25;
+    \item 4 botões de pressão.
+    \item 6 LEDs
+\end{itemize}
