@@ -23,7 +23,59 @@
 \par Para maior conforto e segurança, em relação a incêndios, gases inflamáveis ou tóxicos, foi escolhido o sensor de gás e fumaça MQ-2. Este sensor na presença dos gases inflamáveis (como GLP, i-butano, metano, álcool, hidrogênio) e na presença de fumaça (CO2), aciona o sistema de aviso, podendo-se assim evitar prováveis incêndios, explosões ou que o usuário sofra intoxicação por gás.  É um sensor semicondutor com um encapsulamento em “Baquelite” (polímero formado por fenol formaldeído), que tem uma faixa de medição de concentração que vai de 300 à 10000 ppm e funciona em uma faixa de temperatura de -20 a 50°C. Sua maior precisão está em 20°C, com aproximadamente 65% de umidade.
 \par Para a escolha do sensor que mais se adequasse ao problema foi feita uma pesquisa e comparação entre alguns sensores do mercado.
 
-% Colocar tabelas aqui
+\begin{table}[h]
+\centering
+\caption{Opção 1}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Fabricante}             & HANWEI SENSORS \\ \hline
+\textbf{Modelo}                 & MQ-2 \\ \hline
+\textbf{Tensão}                 & DC 5V  \\ \hline
+\textbf{Concentração}           & 300 a 10000 ppm \\ \hline
+\textbf{Preço}                  & 10,00 à 30,00 \\ \hline
+\multirow{\textbf{Prós:}}       & $\bullet$ Baixo custo \\
+                                & $\bullet$ Alerta sobre múltiplos gases (gás de \\
+                                & petróleo liquefeito, butano, propano, metano, \\
+                                & hidrogênio, álcool, gás natural e outros gases \\
+                                & na concentração corresponde a faixa de medição \\
+                                & do sensor ou mesmo fumaça) \\ \hline
+\textbf{Contras:}               & A quantidade de concentração começar em 300 ppm \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Opção 2}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Fabricante}             & HANWEI SENSORS \\ \hline
+\textbf{Modelo}                 & MQ-6 \\ \hline
+\textbf{Tensão}                 & DC 5V  \\ \hline
+\textbf{Concentração}           & 200 a 10000 ppm \\ \hline
+\textbf{Preço}                  & 15,00 à 30,00 \\ \hline
+\multirow{\textbf{Prós:}}       & $\bullet$ Baixo custo \\
+                                & $\bullet$ Alta sensibilidade para GLP (gás de \\
+                                & cozinha), isobutano e propano \\ \hline
+\textbf{Contras:}               & Baixa sensibilidade para álcool e fumaça \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Opção 3}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Fabricante}             & HANWEI SENSORS \\ \hline
+\textbf{Modelo}                 & MQ-5 \\ \hline
+\textbf{Tensão}                 & DC 5V  \\ \hline
+\textbf{Concentração}           & 200 a 10000 ppm \\ \hline
+\textbf{Preço}                  & 15,00 à 30,00 \\ \hline
+\multirow{\textbf{Prós:}}       & $\bullet$ Baixo custo \\
+                                & $\bullet$ Alta sensibilidade para GLP (gás de \\
+                                & cozinha), isobutano e propano \\ \hline
+\textbf{Contras:}               & Baixa sensibilidade para álcool e fumaça \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Sensor de temperatura/umidade}
 \par Para obter informações sobre temperatura e umidade da casa, a escolha feita foi o sensor DHT11. Este sensor capta dados tanto de temperatura quanto de umidade. A parte de medição da temperatura é composta de um termoresistor feito com materiais semicondutores (a este conjunto também denomina-se termistor). O termistor desse sensor é do tipo NTC (Negative Temperature Coefficient), ou seja, a resistência é inversamente proporcional a temperatura. Já a medição da umidade nesse sensor é feita através de um elemento capacitivo.
@@ -35,7 +87,75 @@
 \par Como o sensor está inserido no escopo de uma casa, onde não é necessário grandes precisões e longos alcances (como o caso de sensores ultra sônicos, que necessitam de maior custo de mão de obra e manutenção), o melhor modelo a ser utilizado são os PIR (Passive InfraRed ou infravermelhos passivos).
 \par Para a definição do sensor adotado na construção da casa foi analisado uma lista de sensores encontrados no mercado, pela grande quantidade de fabricantes desse sensores, foi feita a avaliação através de amostragem priorizando a acessibilidade ao modelo.
 
-% Colocar tabelas aqui
+\begin{table}[h]
+\centering
+\caption{Opção 1}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Fabricante}             & ECP \\ \hline
+\textbf{Modelo}                 & LS120E \\ \hline
+\textbf{Tensão}                 & BIVOLT  \\ \hline
+\textbf{Cobertura}              & 80 Vertical X 120 Horizontal \\ \hline
+\textbf{Alcance}                & 5 metros \\ \hline
+\textbf{Preço}                  & 24,00 à 40,00 \\ \hline
+\multirow{\textbf{Prós:}}       & $\bullet$ Baixo custo \\
+                                & $\bullet$ Botão ON/OFF \\ \hline
+\textbf{Contras:}               & Pontos cegos \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Opção 2}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Fabricante}             & Force Line \\ \hline
+\textbf{Modelo}                 & 6307 \\ \hline
+\textbf{Tensão}                 & BIVOLT  \\ \hline
+\textbf{Cobertura}              & 360° \\ \hline
+\textbf{Alcance}                & 8 metros \\ \hline
+\textbf{Preço}                  & 30,00 à 50,00 \\ \hline
+\multirow{\textbf{Prós:}}       & $\bullet$ Baixo custo \\
+                                & $\bullet$ Cobertura de 360° \\ \hline
+\textbf{Contras:}               & Instalação no teto \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Opção 3}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Fabricante}             & Exatron \\ \hline
+\textbf{Modelo}                 & E27 \\ \hline
+\textbf{Tensão}                 & BIVOLT  \\ \hline
+\textbf{Cobertura}              & 328° \\ \hline
+\textbf{Alcance}                & 7 metros \\ \hline
+\textbf{Preço}                  & 40,00 à 80,00 \\ \hline
+\multirow{\textbf{Prós:}}       & $\bullet$ Fácil instalação \\
+                                & $\bullet$ Botão ON/OFF \\
+                                & $\bullet$ Fácil regulagem \\ \hline
+\multirow{\textbf{Contras:}}    & $\bullet$ Pontos cegos \\
+                                & $\bullet$ Alto custo \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Opção 4}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Fabricante}             & Qualitronix \\ \hline
+\textbf{Modelo}                 & qa25 \\ \hline
+\textbf{Tensão}                 & BIVOLT  \\ \hline
+\textbf{Cobertura}              & 180° \\ \hline
+\textbf{Alcance}                & 10 metros \\ \hline
+\textbf{Preço}                  & 25,00 à 50,00 \\ \hline
+\multirow{\textbf{Prós:}}       & $\bullet$ Baixo custo \\
+                                & $\bullet$ Fácil instalação \\ \hline
+\textbf{Contras:}               & Pontos cegos \\ \hline
+\end{tabular}
+\end{table}
 
 \par Comparando os modelos avaliados foi escolhido o modelo qa25 da qualitronix, essa escolha foi feita pelo produto apresentar baixo custo e não prejudicar os requisitos do projeto. Porém se avaliar apenas o parâmetro custo podemos ver que ele empata com a opção 2 da ForceLine, para o critério o desempate foi estabelecido que as funcionalidades que agregam maior proveito ao projeto como alcance e facilidade de instalação fossem acatadas, prejuízos como ponto cegos que a linha qa25 trás pode ser sanado facilmente com a posição que o sensor for instalado, por esse motivo foi desconsiderado esse problema.
 
