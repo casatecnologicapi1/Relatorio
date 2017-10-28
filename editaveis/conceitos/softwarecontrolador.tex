@@ -76,7 +76,19 @@
 \subsubsection{Requisitos Não Funcionais}
 \par Foram levantados os seguintes requisitos não funcionais relacionados ao funcionamento do software:
 
-% Colocar tabela aqui.
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{ID}                 & \textbf{Descrição} \\ \hline
+\multirow{\textbf{RNF01}    & O sistema deve possuir conexão com os sensores de diversos tipos e    \\
+                            & câmeras de vigilância presentes na residência durante todo o período  \\
+                            & de funcionamento.                                                     \\ \hline
+\multirow{\textbf{RNF02}    & O sistema deve estar conectado à um servidor local à residência.      \\ \hline
+\multirow{\textbf{RNF03}    & O sistema de bancos de dados deve salvar as informações do sistema em \\
+                            & uma base de dados criptografada com senha.                            \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Casos de Uso}
 
@@ -85,18 +97,62 @@
 
 \subsubsection{Diagrama de Casos de Uso}
 
-% Colocar imagem aqui
+\begin{center}
+\includegraphics[width=\textwidth]{figuras/usecases}
+\end{center}
+
+\newpage
 
 \subsubsection{Descrição dos Casos de Uso}
 
-% Colocar tabela aqui
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{ID}                 & \textbf{Nome}         & \textbf{Descrição}                & \textbf{Ator(es)} \\ \hline
+\multirow{\textbf{UC01}}    & Login de Usuário      & Permite que um usuário cadastrado & Usuário           \\
+                            &                       & efetue login no sistema.          &                   \\ \hline
+\multirow{\textbf{UC02}     & Cadastrar Usuário     & Permite que novos usuários sejam  & Administrador     \\
+                            &                       & cadastrados no sistema.           &                   \\ \hline
+\multirow{\textbf{UC03}     & Cadastrar Residência  & Permite que o usuário efetue o    & Administrador     \\
+                            &                       & cadastro de novas casas no        &                   \\
+                            &                       & aplicativo.                       &                   \\ \hline
+\multirow{\textbf{UC04}     & Solicitar controle    & Permite ao usuário solicitar      & Usuário           \\
+                            & da casa               & acesso às funcionalidades de      &                   \\
+                            &                       & controle da casa.                 &                   \\ \hline
+\multirow{\textbf{UC05}     & Monitorar padrão de   & Permite que o usuário efetue o    & Administrador     \\
+                            & acesso ao controle    & cadastro de novas casas no        &                   \\
+                            & da casa               & aplicativo.                       &                   \\ \hline
+\multirow{\textbf{UC06}     & Cadastrar cômodos     & Permite que o usuário cadastre    & Administrador     \\
+                            &                       & novos cômodos na casa.            &                   \\ \hline
+\multirow{\textbf{UC07}     & Editar cômodos        & Permite que o usuário edite       & Administrador     \\
+                            &                       & cômodos já existentes da casa.    &                   \\ \hline
+\multirow{\textbf{UC08}     & Monitorar dados       & Permite mostrar ao usuário todo o & Usuário           \\
+                            &                       & registro e monitoramento dos      &                   \\
+                            &                       & dados captados pelos sensores     &                   \\
+                            &                       & instalados na casa.               &                   \\ \hline
+\multirow{\textbf{UC09}     & Controlar cômodos     & Permitir controlar à distância os & Usuário           \\
+                            &                       & cômodos e seus respectivos        &                   \\
+                            &                       & dispositivos cadastrados.         &                   \\ \hline
+\multirow{\textbf{UC10}     & Gerar relatórios      & Permitir a geração de relatórios  & Administrador     \\
+                            &                       & a partir dos dados obtidos no     &                   \\
+                            &                       & monitoramento da casa.            &                   \\ \hline
+\multirow{\textbf{UC11}     & Notificar usuários    & Permitir a exibição de            & Sistema           \\
+                            &                       & notificações para os usuários     &                   \\
+                            &                       & sobre os acontecimentos na casa.  &                   \\ \hline
+\end{tabular}
+\end{table}
+
+\newpage
 
 \subsection{Implementação}
 \subsubsection{Tecnologia e Arquitetura}
 \par O software será desenvolvido utilizando os frameworks Ruby on Rails e Ionic para gerar a portabilidade necessária entre plataformas com a finalidade de atender aos requisitos do usuário.
 \par Utilizará uma arquitetura de software MVC com modificações por conta do Ionic framework, que insere algumas camadas estruturais entre as camadas Controller e a View. Como representado na imagem a seguir:
 
-% Colocar imagem aqui
+\begin{center}
+\includegraphics[width=10cm]{figuras/tecnologias}
+\end{center}
 
 \par A camada Model é o lugar onde os dados são estruturados, consultados e validados. Ela se conecta diretamente com a camada de controle, pois a camada de controle que, através do input da camada de visão, irá definir quais dados serão consultados para que a camada de modelo faça conexão com a base de dados, e retorne sua resposta baseando-se nos dados analisados ou alterados.
 \par A camada View é a responsável por todas as interações com o usuário e também fará contato com a camada de controle para definir quais informações serão mostradas para o usuário. As principais funções da camada de visão são mostrar a interface gráfica para os usuários e fazer a comunicação com a camada de controle.
@@ -108,21 +164,31 @@
 \par Caso o usuário utilize de algum recurso do software que precise do sistema de automação para ser realizado, como por exemplo, apagar a luz da garagem, o software de controle enviará comandos para o sistema de automação para que o mesmo realize a tarefa e mande de volta uma resposta.
 \par Segue abaixo uma breve representação da transmissão de dados e da comunicação dos sistemas.
 
+\begin{center}
+\includegraphics[width=10cm]{figuras/componentes}
+\end{center}
+
 \subsection{Logo do Aplicativo}
 
-% Colocar imagem aqui
+\begin{center}
+\includegraphics[width=5cm]{figuras/pi1}
+\end{center}
 
 \subsection{Interface Com o Usuário}
 
 \subsubsection{Tela Inicial}
 
-% Colocar imagem aqui
+\begin{center}
+\includegraphics[width=5cm]{figuras/2}
+\end{center}
 
 \par Pode-se observar os cômodos que estão sendo monitorados pelo sistema inteligente da casa e que cada um dos sensores e equipamentos podem ser monitorados e controlados mediante ao uso do sistema. Ao clicar em Garagem, o sistema redireciona para a área de descrição da mesma, mostrada na tela a seguir.
 
 \subsubsection{Área de Controle de Cômodo Específico (Garagem)}
 
-% Colocar imagem aqui
+\begin{center}
+\includegraphics[width=5cm]{figuras/3}
+\end{center}
 
 \par Área de controle de cômodos específicos, aqui ilustrada a da garagem da casa, pode-se visualizar todas as informações do sistema relacionadas ao cômodo, como consumo, sensores, temperatura ambiente, etc.
 \par É possível também alertar ao usuário sobre as informações de consumo de energia, umidade relativa do local, movimentação, portão aberto, etc.
@@ -130,14 +196,18 @@
 
 \subsubsection{Tela de Informação dos Sensores}
 
-% Colocar imagem aqui
+\begin{center}
+\includegraphics[width=5cm]{figuras/4}
+\end{center}
 
 \par Aqui, é possível visualizar com maior detalhe as informações que estão sendo coletadas pelo sistema de integração da casa. É possível também receber notificações específicas em relação a cada tipo de sensor utilizado.
 \par Essa tela permite que o usuário clique em configurações e realize as devidas tarefas em relação aos dispositivos controlados, como portão, luzes, etc, mostrados na tela a seguir.
 
 \subsubsection{Tela de Configuração de Dispositivos}
 
-% Colocar imagem aqui
+\begin{center}
+\includegraphics[width=5cm]{figuras/5}
+\end{center}
 
 \par Nesta tela é possível configurar todos os dispositivos do sistema disponíveis no cômodo, podendo controlar as luzes que ficam acesas, a intensidade das mesmas, abrir e fechar o portão por meio do switch, etc.
 \par Com as configurações sendo alteradas, o sistema calcula em tempo real o consumo médio daquele cômodo com as novas configurações.
