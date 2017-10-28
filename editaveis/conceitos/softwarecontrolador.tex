@@ -8,12 +8,70 @@
 \subsubsection{Problema a Ser Resolvido}
 \par O problema a ser solucionado pelo software está representado na seguinte tabela:
 
-% Colocar tabela aqui.
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\multirow{\textbf{O problema seria}         & a dificuldade de interação entre o usuário e o sistema \\
+                                            & de automação \\ \hline
+\multirow{\textbf{que afeta}                & a usabilidade e acesso às informações por parte do \\
+                                            & usuário \\ \hline
+\multirow{\textbf{cujo impacto é}           & impedir o usuário de usufruir de todas as funcionalidades \\
+                                            & disponibilizadas pelo sistema \\ \hline
+\multirow{\textbf{uma boa solução seria}}   & o desenvolvimento de um software que seja a interface \\
+                                            & entre o usuário e o sistema, a fim de amenizar ao máximo \\
+                                            & sua dificuldade de interagir com o sistema de automação. \\ \hline
+\end{tabular}
+\end{table}
 
 \subsubsection{Requisitos Funcionais}
 \par Foram levantados os seguintes requisitos funcionais relacionados ao funcionamento do software:
 
-% Colocar tabela aqui.
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ID}                 & \textbf{Descrição}                                & \textbf{Dependências} \\ \hline
+\multirow{\textbf{RF01}}    & O sistema deve manter os registros de consumo     & N/A \\
+                            & de recursos da residência.                        & \\ \hline
+\multirow{\textbf{RF02}     & O sistema deve apresentar relatórios sobre os     & RF01 \\
+                            & registros de consumo de recursos da residência.   & \\ \hline
+\multirow{\textbf{RF03}     & O sistema deve receber e armazenar os dados dos   & RNF01 \\
+                            & sensores presentes na residência.                 & \\ \hline
+\multirow{\textbf{RF04}     & O sistema deve permitir que o usuário mantenha    & RF01 \\
+                            & metas de consumos de recursos da residência.      & \\ \hline
+\multirow{\textbf{RF05}     & O sistema deve exibir o feed de gravação das      & RNF01 \\
+                            & câmeras de segurança interna à residência.        & \\ \hline
+\multirow{\textbf{RF06}     & O sistema deve manter as gravações das câmeras de & RF05 \\
+                            & segurança interna pelo período de um mês após a   & \\
+                            & gravação.                                         & \\ \hline
+\multirow{\textbf{RF07}     & O sistema deve permitir que o usuário configure   & N/A \\
+                            & backups automáticos.                              & \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{ID}                 & \textbf{Descrição}                                & \textbf{Dependências} \\ \hline
+\multirow{\textbf{RF08}     & O sistema deve notificar o usuário em caso de     & RNF01 \\
+                            & princípio de incêndio.                            & \\ \hline
+\multirow{\textbf{RF09}     & O sistema deve permitir o usuário a criar modos   & N/A \\
+                            & de vigilância de áreas da casa.                   & \\ \hline
+\multirow{\textbf{RF10}     & O sistema deve notificar o usuário caso o sensor  & RNF01 \\
+                            & de presença seja acionado, de acordo com o modo   & RF09 \\
+                            & de segurança atual.                               & \\ \hline
+\multirow{\textbf{RF11}     & O sistema deve notificar o usuário caso o sensor  & N/A \\
+                            & de gás detecte a presença de gases prejudiciais.  & \\ \hline
+\multirow{\textbf{RF12}     & O sistema deve permitir que o usuário controle a  & N/A \\
+                            & iluminação dos cômodos da residência pela         & \\
+                            & interface.                                        & \\ \hline
+\multirow{\textbf{RF13}     & O sistema deve permitir que o usuário controle a  & N/A \\
+                            & ativação/desativação dos aparelhos eletrônicos    & \\
+                            & cadastrados pela interface.                       & \\ \hline
+\end{tabular}
+\end{table}
 
 \subsubsection{Requisitos Não Funcionais}
 \par Foram levantados os seguintes requisitos não funcionais relacionados ao funcionamento do software:
