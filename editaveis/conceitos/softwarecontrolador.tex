@@ -180,50 +180,142 @@
 \par Caso o usuário utilize de algum recurso do software que precise do sistema de automação para ser realizado, como por exemplo, apagar a luz da garagem, o software de controle enviará comandos para o sistema de automação para que o mesmo realize a tarefa e mande de volta uma resposta.
 \par Segue abaixo uma breve representação da transmissão de dados e da comunicação dos sistemas.
 
-\begin{center}
+\begin{figure}[!h]
+\centering
+\caption{Representação da transmissão de dados e da comunicação dos sistemas}
 \includegraphics[width=10cm]{figuras/componentes}
-\end{center}
+\end{figure}
 
 \subsection{Logo do Aplicativo}
 
-\begin{center}
+\begin{figure}[!h]
+\centering
+\caption{Logo do Aplicativo}
 \includegraphics[width=5cm]{figuras/pi1}
-\end{center}
+\end{figure}
 
 \subsection{Interface Com o Usuário}
 
 \subsubsection{Tela Inicial}
 
-\begin{center}
-\includegraphics[width=5cm]{figuras/2}
-\end{center}
+\begin{figure}[!h]
+\centering
+\caption{Tela inicial do aplicativo}
+\includegraphics[width=5cm]{figuras/splash_screen}
+\end{figure}
 
-\par Pode-se observar os cômodos que estão sendo monitorados pelo sistema inteligente da casa e que cada um dos sensores e equipamentos podem ser monitorados e controlados mediante ao uso do sistema. Ao clicar em Garagem, o sistema redireciona para a área de descrição da mesma, mostrada na tela a seguir.
+\par Mais conhecida como Splash Screen, nada mais é que uma tela que possui o ícone do Aplicativo e geralmente mostrada ao iniciar o aplicativo enquanto alguns dados referentes ao mesmo estão sendo carregados por trás.
 
-\subsubsection{Área de Controle de Cômodo Específico (Garagem)}
+\subsubsection{Tela de Login}
 
-\begin{center}
-\includegraphics[width=5cm]{figuras/3}
-\end{center}
+\begin{figure}[!h]
+\centering
+\caption{Tela de Login do Aplicativo}
+\includegraphics[width=5cm]{figuras/login}
+\end{figure}
 
-\par Área de controle de cômodos específicos, aqui ilustrada a da garagem da casa, pode-se visualizar todas as informações do sistema relacionadas ao cômodo, como consumo, sensores, temperatura ambiente, etc.
-\par É possível também alertar ao usuário sobre as informações de consumo de energia, umidade relativa do local, movimentação, portão aberto, etc.
-\par Tudo isso pode ser acessado em detalhes clicando em sensores, na próxima tela.
+\par Tela para permitir que os usuários cadastrados realizem login no aplicativo.
 
-\subsubsection{Tela de Informação dos Sensores}
+\subsubsection{Painel Administrativo}
 
-\begin{center}
-\includegraphics[width=5cm]{figuras/4}
-\end{center}
+\begin{figure}[!h]
+\centering
+\caption{Painel Administrativo do Aplicativo}
+\includegraphics[width=5cm]{figuras/painel_adm}
+\end{figure}
 
-\par Aqui, é possível visualizar com maior detalhe as informações que estão sendo coletadas pelo sistema de integração da casa. É possível também receber notificações específicas em relação a cada tipo de sensor utilizado.
-\par Essa tela permite que o usuário clique em configurações e realize as devidas tarefas em relação aos dispositivos controlados, como portão, luzes, etc, mostrados na tela a seguir.
+\par Painel responsável por permitir que o administrador gerencie toda a residência, seus cômodos e sensores.
+\par Essa tela permite que o administrador realize todas as atividades que estão ligadas à esse perfil de usuário.
 
-\subsubsection{Tela de Configuração de Dispositivos}
+\subsubsection{Tela de Cadastro da Casa}
 
-\begin{center}
-\includegraphics[width=5cm]{figuras/5}
-\end{center}
+\begin{figure}[!h]
+\centering
+\caption{Tela de Cadastro da Casa}
+\includegraphics[width=5cm]{figuras/cadastro_casa}
+\end{figure}
 
-\par Nesta tela é possível configurar todos os dispositivos do sistema disponíveis no cômodo, podendo controlar as luzes que ficam acesas, a intensidade das mesmas, abrir e fechar o portão por meio do switch, etc.
-\par Com as configurações sendo alteradas, o sistema calcula em tempo real o consumo médio daquele cômodo com as novas configurações.
+\par Tela responsável por permitir o cadastro de uma nova residência no sistema de controle inteligente.
+\par Basta o usuário entrar com os dados da casa e já será possível realizar o controle da mesma.
+
+\subsubsection{Tela de Cadastro do Usuário}
+
+\begin{figure}[!h]
+\centering
+\caption{Tela de Cadastro do Usuário}
+\includegraphics[width=5cm]{figuras/cadastro_de_usuario}
+\end{figure}
+
+\par Tela responsável por permitir que um novo usuário se cadastre no sistema.
+\par Nela, basta que o mesmo entre com seus dados e se cadastre no software de controle de casa.
+
+\subsubsection{Tela de Solicitar Controle da Casa}
+
+\begin{figure}[!h]
+\centering
+\caption{Tela de Solicitar Controle da Casa}
+\includegraphics[width=5cm]{figuras/solicitar_controle}
+\end{figure}
+
+\par Tela que permite que um novo usuário solicite o controle e acesso à uma residência em específico.
+
+\subsubsection{Tela de Controle de Acesso}
+
+\begin{figure}[!h]
+\centering
+\caption{Tela de Controle de Acesso}
+\includegraphics[width=5cm]{figuras/controle_acesso_casa}
+\end{figure}
+
+\par Permite gerenciar todo o controle de acesso à casa.
+\par É uma tela específica para os administradores da casa, os quais podem editar quais os usuários responsáveis por poder gerenciar e controlar a casa por meio do aplicativo.
+
+\subsubsection{Tela do Menu Inicial}
+
+\begin{figure}[!h]
+\centering
+\caption{Tela do Menu Inicial}
+\includegraphics[width=5cm]{figuras/menu_inicial}
+\end{figure}
+
+\par Tela de menu inicial da casa, mostrando os cômodos cadastrados, bem como algumas informações gerais sobre os controladores da residência.
+
+\subsubsection{Tela de Controle do Cômodo}
+
+\begin{figure}[!h]
+\centering
+\caption{Tela de Controle do Cômodo}
+\includegraphics[width=5cm]{figuras/controle_comodo}
+\end{figure}
+
+\par Permite controlar os sensores e demais mecanismos controláveis de um cômodo em específico da residência.
+
+\subsubsection{Tela dos Sensores do Cômodo}
+
+\begin{figure}[!h]
+\centering
+\caption{Tela dos Sensores do Cômodo}
+\includegraphics[width=5cm]{figuras/sensores_comodo}
+\end{figure}
+
+\par Tela que permite que o usuário com os devidos acessos à residência possa realizar o controle dos sensores de um cômodo em específico.
+
+\subsubsection{Tela do Cômodo Específico}
+
+\begin{figure}[!h]
+\centering
+\caption{Tela do Cômodo Específico}
+\includegraphics[width=5cm]{figuras/comodo_especifico}
+\end{figure}
+
+\par Permite visualizar as informações úteis referente à um cômodo em específico, desde que o mesmo já esteja cadastrado na casa.
+
+\subsubsection{Tela da Visão Geral da Casa}
+
+\begin{figure}[!h]
+\centering
+\caption{Tela da Visão Geral da Casa}
+\includegraphics[width=5cm]{figuras/overview_casa}
+\end{figure}
+
+\par Tela responsável por mostrar de maneira clara uma visão genérica referente aos dados que estão sendo coletados pelos sensores instalados na casa, bem como os gastos totais até o momento e valores médios de consumo de enegia e afins.
