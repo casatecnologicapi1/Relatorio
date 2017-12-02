@@ -53,13 +53,13 @@
 \par Todo o código pode ser dividido em funções principais. No início é definido os pinos a serem utilizados na placa e as variáveis globais que podem vir a ser utilizadas por qualquer função do programa.
 \par Na função setup() é definido como os pinos declarados anteriormente serão utilizados (input ou output) e é realizada a configuração da comunicação serial a ser realizada com a placa do Raspberry.
 \par Na função loop() é realizada a chamada para as demais funções.
-\par Na função prot_serial() é realizada uma verificação, caso exista alguma requisição por parte do usuário é realizado um tratamento dos dados recebidos para a classificação de qual informação o usuário está solicitando e é retornada tal informação, caso contrário o funcionamento dos atuadores e sensores é atualizado e nenhuma informação é retornada.
-\par Na função trat_comando() é realizado o tratamento dos dados obtidos pelos sensores para que estes sejam transmitido ao Raspberry e posteriormente entregue ao usuário por meio da aplicação.
-\par A função DHT_monitor() é responsável pelo gerenciamento do sensor de temperatura e umidade, sendo realizada a leitura, o tratamento e o envio dos dados ao usuário.
-\par A função sensor_gas() é responsável pelo gerenciamento do sensor de gás, sendo realizada a leitura do sensor, caso a leitura tenha alguma anomalia é enviado uma notificação ao usuário e o programa retorna ao início, caso contrário o programa executa a próxima função.
+\par Na função prot\_serial() é realizada uma verificação, caso exista alguma requisição por parte do usuário é realizado um tratamento dos dados recebidos para a classificação de qual informação o usuário está solicitando e é retornada tal informação, caso contrário o funcionamento dos atuadores e sensores é atualizado e nenhuma informação é retornada.
+\par Na função trat\_comando() é realizado o tratamento dos dados obtidos pelos sensores para que estes sejam transmitido ao Raspberry e posteriormente entregue ao usuário por meio da aplicação.
+\par A função DHT\_monitor() é responsável pelo gerenciamento do sensor de temperatura e umidade, sendo realizada a leitura, o tratamento e o envio dos dados ao usuário.
+\par A função sensor\_gas() é responsável pelo gerenciamento do sensor de gás, sendo realizada a leitura do sensor, caso a leitura tenha alguma anomalia é enviado uma notificação ao usuário e o programa retorna ao início, caso contrário o programa executa a próxima função.
 \par Na função presenca() é verificado se o sensor de presença foi ativado, caso esteja ativo e o monitoramento estiver ligado é realizado o tratamento dos dados para serem enviados ao usuário caso contrário o programa segue para a próxima função.
-\par Na função trat_bot() é realizado o tratamento dos botões para alterações do estado dos sensores (ativos ou inativos).
-\par Na função tabela_aparelho() é realizada uma checagem geral de todos os dados obtidos, é realizado seu tratamento e envio desses ao usuário.
+\par Na função trat\_bot() é realizado o tratamento dos botões para alterações do estado dos sensores (ativos ou inativos).
+\par Na função tabela\_aparelho() é realizada uma checagem geral de todos os dados obtidos, é realizado seu tratamento e envio desses ao usuário.
 
 \textcolor{red}{Inserir imagem}
 
