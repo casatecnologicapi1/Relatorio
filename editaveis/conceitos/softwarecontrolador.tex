@@ -9,6 +9,7 @@
 \par O problema a ser solucionado pelo software está representado na seguinte tabela:
 
 \begin{table}[h]
+\captionof{table}{Descrição do Problema}
 \centering
 \begin{tabular}{|l|l|}
 \hline
@@ -28,6 +29,7 @@
 \par Foram levantados os seguintes requisitos funcionais relacionados ao funcionamento do software:
 
 \begin{table}[h]
+\captionof{table}{Descrição dos Requisitos Funcionais}
 \centering
 \begin{tabular}{|l|l|l|}
 \hline
@@ -45,8 +47,6 @@
 \multirow{\textbf{RF06}}    & O sistema deve manter as gravações das câmeras de & RF05 \\
                             & segurança interna pelo período de um mês após a   & \\
                             & gravação.                                         & \\ \hline
-\multirow{\textbf{RF07}}    & O sistema deve permitir que o usuário configure   & N/A \\
-                            & backups automáticos.                              & \\ \hline
 \end{tabular}
 \end{table}
 
@@ -55,6 +55,8 @@
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{ID}                 & \textbf{Descrição}                                & \textbf{Dependências} \\ \hline
+\multirow{\textbf{RF07}}    & O sistema deve permitir que o usuário configure   & N/A \\
+                            & backups automáticos.                              & \\ \hline
 \multirow{\textbf{RF08}}    & O sistema deve notificar o usuário em caso de     & RNF01 \\
                             & princípio de incêndio.                            & \\ \hline
 \multirow{\textbf{RF09}}    & O sistema deve permitir o usuário a criar modos   & N/A \\
@@ -77,6 +79,7 @@
 \par Foram levantados os seguintes requisitos não funcionais relacionados ao funcionamento do software:
 
 \begin{table}[h]
+\captionof{table}{Descrição dos Requisitos Não Funcionais}
 \centering
 \begin{tabular}{|l|l|}
 \hline
@@ -97,21 +100,31 @@
 
 \subsubsection{Diagrama de Casos de Uso}
 
-\begin{center}
+\begin{figure}[!ht]
+\caption{Diagrama de Casos de Uso}
 \includegraphics[width=\textwidth]{figuras/usecases}
-\end{center}
+\end{figure}
 
 \newpage
 
 \subsubsection{Descrição dos Casos de Uso}
 
 \begin{table}[h]
+\captionof{table}{Descrição dos Casos de Uso}
 \centering
 \begin{tabular}{|l|l|l|l|}
 \hline
 \textbf{ID}                 & \textbf{Nome}         & \textbf{Descrição}                & \textbf{Ator(es)} \\ \hline
 \multirow{\textbf{UC01}}    & Login de Usuário      & Permite que um usuário cadastrado & Usuário           \\
                             &                       & efetue login no sistema.          &                   \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{ID}                 & \textbf{Nome}         & \textbf{Descrição}                & \textbf{Ator(es)} \\ \hline
 \multirow{\textbf{UC02}}    & Cadastrar Usuário     & Permite que novos usuários sejam  & Administrador     \\
                             &                       & cadastrados no sistema.           &                   \\ \hline
 \multirow{\textbf{UC03}}    & Cadastrar Residência  & Permite que o usuário efetue o    & Administrador     \\
@@ -148,11 +161,14 @@
 \subsection{Implementação}
 \subsubsection{Tecnologia e Arquitetura}
 \par O software será desenvolvido utilizando os frameworks Ruby on Rails e Ionic para gerar a portabilidade necessária entre plataformas com a finalidade de atender aos requisitos do usuário.
-\par Utilizará uma arquitetura de software MVC com modificações por conta do Ionic framework, que insere algumas camadas estruturais entre as camadas Controller e a View. Como representado na imagem a seguir:
+\par Utilizará uma arquitetura de software MVC com modificações por conta do Ionic framework, que insere algumas camadas estruturais entre as camadas Controller e a View, conforme representado na Figura \ref{fig:arquitetura}.
 
-\begin{center}
+\begin{figure}[!h]
+\caption{Arquitetura do Software}
+\label{fig:arquitetura}
+\centering
 \includegraphics[width=10cm]{figuras/tecnologias}
-\end{center}
+\end{figure}
 
 \par A camada Model é o lugar onde os dados são estruturados, consultados e validados. Ela se conecta diretamente com a camada de controle, pois a camada de controle que, através do input da camada de visão, irá definir quais dados serão consultados para que a camada de modelo faça conexão com a base de dados, e retorne sua resposta baseando-se nos dados analisados ou alterados.
 \par A camada View é a responsável por todas as interações com o usuário e também fará contato com a camada de controle para definir quais informações serão mostradas para o usuário. As principais funções da camada de visão são mostrar a interface gráfica para os usuários e fazer a comunicação com a camada de controle.
