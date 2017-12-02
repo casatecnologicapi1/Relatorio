@@ -22,29 +22,42 @@
 \subsubsection{Dimensionamento do sistema fotovoltáico}
 \par Segundo \textit{Lewton Burity Verri}, uma casa contendo quatro pessoas, sendo sua renda referente a de classe média alta, o consumo gira em torno de 39.600KW/h ao ano.
 \par Para o consumo total da casa por mês, calculamos e usamos como base 956,2 kWh. Como o gasto de energia da casa é maior que a média nacional, o sistema demandará um poder de geração também maior.
-\par O consumo foi baseado na tabela abaixo, com um adicional de segurança e para a prevenção de possíveis quedas de energia.
+\par O consumo foi baseado na tabela da Figura \ref{fig:dimensionamento}, com um adicional de segurança e para a prevenção de possíveis quedas de energia.
 
-\textcolor{red}{Inserir tabela}
+\begin{figure}[!h]
+\label{fig:dimensionamento}
+\centering
+\caption{Dimensionamento do Consumo da casa}
+\includegraphics[width=\textwidth]{figuras/dimensionamento_consumo}
+\end{figure}
 
 \subsubsection{Painéis solares}
 \par Os painéis escolhidos para a geração foram os Canadian CSI CS6U-320P. Sua potência de pico é de 320 (Wp) sendo um dos painéis com maior potência e de fácil acesso do mercado atual. No sistema em questão, será necessário o uso de 28 unidades do painel.
 
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\centering
+\caption{Canadian 320 Wp}
+\includegraphics[width=5cm]{figuras/paineis_solares}
+\end{figure}
 
 \subsubsection{Inversor}
 \par O inversor é o responsável para a conversão da corrente contínua que os painéis produzem para a corrente alternada, tipo de corrente padrão da casa. Contando que são 28 paineis de 320Wp, então o sistema fica com aproximadamente 9 kW de potência total. O inversor dimensionado então foi o Inversor Fronius Primo 8.2-1 (8.200W).
 \par Todos os inversores trabalham numa margem de mais ou menos 25\% da sua potência ideal, portanto é totalmente seguro implementá-lo na casa.
 
-\textcolor{red}{Inserir imagem}
-
-\par Também haverá um segundo inversor. Este inversor seria um adicional ao inversor já existente, porém totalmente voltado para o sistema crítico da casa. Como os equipamentos a serem alimentados não são muitos e nem demandam muita energia, o inversor também não é um robusto, um de 800W já é mais que suficiente para suprir tudo.
-
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\centering
+\caption{Inversor Fronius 8,2 kW}
+\includegraphics[width=5cm]{figuras/inversor}
+\end{figure}
 
 \subsubsection{Energia Consumida x Energia Gerada}
 \par É importante salientar que cada mês do ano, a variação entre energia consumida e gerada existe, isso devido à incidência solar que também varia consideravelmente durante o ano. Para melhor ilustrar essa variação, segue o gráfico gerado:
 
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\centering
+\caption{Consumo e Energia Gerada}
+\includegraphics[width=\textwidth]{figuras/consumo_energia_gerada}
+\end{figure}
 
 \subsection{Dimensionamento do sistema crítico}
 \par No projeto também consta um sistema a parte do On-Grid que alimenta a casa normalmente, sendo voltado para quando houver surtos na rede elétrica ou quedas indesejadas. Em todos esses sistemas, será utilizado os seguintes equipamentos:
@@ -52,19 +65,25 @@
 \subsubsection{Bateria}
 \par A bateria ideal para estes cenários que foi escolhida será uma bateria de 115ah/12V, sendo compreendida uma autonomia de 2 a 3 horas de duração para os equipamentos em questão.
 
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\centering
+\caption{Bateria}
+\includegraphics[width=\textwidth]{figuras/bateria}
+\end{figure}
 
 \subsubsection{Fonte para a bateria}
 \par Foi pensado também num carregador para a bateria estacionária em questão, sendo utilizado somente para carregá-la após a queda, considerando uma queda rápida de 2 a 3 horas.
 
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\centering
+\caption{Fonte para bateria}
+\includegraphics[width=\textwidth]{figuras/fonte}
+\end{figure}
 
 \subsection{Funcionamento/Automação}
 \par Para que seja realizada a automação deste sistema, ou seja, o processo de mudança de fonte de energia para não atrapalhar a alimentação da central SmartGrid, será necessário um sensor chamado de sensor de tensão.
 \par Ele é necessário pois a central é inicialmente ligada à fonte principal de energia da casa (sistema fotovoltaico On-Grid) e quando ocorre um surto, a rede não é capaz de fornecer essa energia. Então é nesse momento que o sensor de tensão é acionado e a fonte de alimentação da central é alternada para a energia que o banco de baterias, junto com o inversor, fornece.
 \par O sensor é um componente eletrônico bem simples e pode ser controlado por um Arduíno. Ele consegue detectar se está chegando ou não uma certa tensão em seu circuito e, com o sistema já montado, ele manda a informação para o arduíno que realiza a troca de sistema.
-
-\textcolor{red}{Inserir imagens}
 
 \subsection{Pacotes Adicionais}
 
