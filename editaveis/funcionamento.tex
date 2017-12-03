@@ -12,19 +12,27 @@
         \item Sensor de presença, modelo: Qualitronix QA25.
     \end{itemize}
 
-\subsection{Exemplo do funcionamento do sensor}
+\subsection{Exemplo do Funcionamento do Sensor}
 
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\caption{Funcionamento do Sensor}
+\centering
+\includegraphics[width=10cm]{figuras/funcionamento}
+\end{figure}
 
 \par O sensor MQ-2 (datasheet), é um detector de gás e fumaça que pode indicar a presença de GLP (Gás liquefeito de petróleo, o famoso gás de cozinha), Propano, Metano, Hidrogênio e outros tipos de gases. Seu nível de detecção vai de 300 a 10.000 ppm (partes por milhão), ajustáveis por um potenciômetro na parte de trás do módulo. Um chip comparador LM393 é responsável por ler as informações do sensor e converter essas informações em sinais para o microcontrolador.
 \par A tensão de alimentação do módulo é de 5V e a comunicação com o microcontrolador pode ser feita de duas maneiras : pela saída digital D0 ou pela saída analógica A0. Podemos utilizar a saída digital para simplesmente ligar uma sirene ou acionar um relé que vai fechar/abrir uma porta, cortar o fornecimento de gás, etc. Já a saída analógica informa o nível de concentração de gases detectados pelo sensor. Quanto maior a concentração, maior o nível de sinal na saída analógica A0.
 
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\caption{Esquemático do Funcionamento do Sensor}
+\centering
+\includegraphics[width=10cm]{figuras/funcionamento2}
+\end{figure}
 
 \par A exemplo de outros sensores para Arduino, vamos trabalhar apenas com portas digitais e analógicas, lendo os valores enviados pelo sensor. No nosso circuito de testes, usamos a porta digital 7 para ligação ao pino D0 do módulo, e a porta analógica A2 ligada ao pino A0 do módulo.
-\par s portas digitais 8, 9 e 10 serão utilizadas para acionar um led vermelho e um buzzer (gás detectado), e um led verde no modo normal de operação (sem alarme).
-\par No programa, o valor lido da porta analógica (valor_analogico), é comparado com a variável nivel_sensorpara determinar em que ponto será acionado o buzzer e a também o led vermelho.
-\par Nos nossos testes, o valor inicial da leitura ficou em 213 , e aumentou rapidamente para 550 na presença de gás. Ajuste o valor de nivel_sensor de acordo com o nível de detecção desejado.
+\par As portas digitais 8, 9 e 10 serão utilizadas para acionar um led vermelho e um buzzer (gás detectado), e um led verde no modo normal de operação (sem alarme).
+\par No programa, o valor lido da porta analógica (valor\_analogico), é comparado com a variável nivel\_sensor para determinar em que ponto será acionado o buzzer e a também o led vermelho.
+\par Nos nossos testes, o valor inicial da leitura ficou em 213, e aumentou rapidamente para 550 na presença de gás. Ajuste o valor de nivel\_sensor de acordo com o nível de detecção desejado.
 \par O código-fonte da programação deste sistema encontra-se nos anexos deste documento.
 
 \section{Atuadores}
