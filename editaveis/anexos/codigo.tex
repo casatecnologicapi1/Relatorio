@@ -1,0 +1,294 @@
+\chapter{Código Funcionamento Arduino}
+
+\begin{verbatim}
+#include <Adafruit_Sensor.h>// biblioteca
+#include "DHT.h"// possível erro
+#define DHTPIN A1 // pino que estamos conectado - porta A1
+#define DHTTYPE DHT11 // DHT 11
+/////////////////////Sensor Humidade e Temperatura//////////////////////
+// Conecte pino 1 do sensor (esquerda) ao +5V                         //
+// Conecte pino 2 do sensor ao pino de dados definido em seu Arduino  //
+// Conecte pino 4 do sensor ao GND                                    //
+// Conecte o resistor de 10K entre pin 2 (dados)                      //
+// e ao pino 1 (VCC) do sensor                                        //
+//////////////////////////////Sensor de Gás/////////////////////////////
+// Conecte pino 1 do sensor (esquerda) ao +5V                         //
+// Conecte pino 2 do sensor ao GND                                //
+// Conecte pino 3 do sensor à porta digital 7                         //
+// Conecte pino 4 do sensor à porta analógica A2                      //
+////////////////////////////////////////////////////////////////////////
+DHT dht(DHTPIN, DHTTYPE);// Para o Sensor de Humidade e temperatura
+
+// Definições dos pinos ligados ao sensor de gás
+int pin_d0 = 7;
+int pin_a0 = A2;// Entrada analógica para o sensor - porta A2
+int nivel_sensor = 250;
+
+// Declarando pinos digitais para botões
+int bot[] = {2,3,4,5};
+// Declarando pinos digitais para os LEDs
+
+int led[] ={8,9,10,11};
+
+// Declarando pino digital para sensor de presença
+int pre_pin = 6;
+int i=0;// para estruturas for
+//char  comando_led[] = {0};// declarando o vetor para valores da
+Serial ide
+char  led_state[] = {'L','L','L','L'};// declarando o vetor para estado
+dos leds
+int gas = 0;// flag gás
+char chegou; //variável para RX do arduino, leitor serial, se chegou
+informação.
+
+int comando[7]={0};// Variável para carregar os comando recebidos 8bits
+int comando2 = 0;
+float tempe2 = 0; // Variável para temperatura
+float umid2= 0; // Variável para umidade
+void setup() {
+     // Define os pinos de leitura do sensor como entrada
+     pinMode(pin_d0, INPUT);
+     pinMode(pin_a0, INPUT);
+  ////////////////////////////////////////////////////
+  for(i=0; i<4; i++){
+          pinMode(bot[i], INPUT);// Definindo os pinos dos botões como
+          entrada
+          pinMode(led[i], OUTPUT); // Definindo os pinos dos LEDs como
+          saída
+  }
+  pinMode(pre_pin, INPUT);// Definindo o pino do sensor de presença como
+  entrada
+
+  // Taxa de velocidade de dados enviados pelo via serial
+  Serial.begin(9600);
+  // Serial.println("DHTxx test!");
+  dht.begin();
+}
+/////////////// função de tratamento do que se recebe do monitor
+serial do PC
+///////////////
+void prot_serial(){
+     if (Serial.available()){
+     chegou=Serial.read();
+    for(i=0;i<8;i++){
+         comando[i] = chegou & (0x01<<i);// máscara para receber
+         valores (0bXXXX XXXX and 0b0000 0001)
+/* Thread responsável por fazer a comunicação serial
+ Protocolo 0bxxxx xxxx
+  xxxx     = comando para atuadores setado
+  x    = Estado entre 0 ou 1 para os atuadores
+  xxx = Não são utilizados   */
+          }
+     }
+}
+
+void DHT_monitor(){
+  // A leitura da temperatura e umidade pode levar 250ms!
+  // O atraso do sensor pode chegar a 2 segundos.
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+ // tempe2 = t;
+ // umid2 = h;
+ // testa se retorno é valido, caso contrário algo está errado.
+
+  if( t <47){ // Para temperaturas abaixo de 47º o sistema funciona
+  normalmente
+        if (isnan(t) || isnan(h)) {
+            Serial.println("Falha na leitura do DHT");
+        }
+        else {
+            Serial.print("Umidade: ");
+            Serial.print(h);
+            Serial.print(" %t");
+            Serial.print("Temperatura: ");
+            Serial.print(t);
+            Serial.println(" *C");
+          }
+      }
+      else{
+        Serial.print("\n\t A casa está em chamas\n");
+      }
+      /* if (isnan(t) || isnan(h)) {
+           Serial.println("Failed to read from DHT");
+      }
+      else {
+           Serial.print("Umidade: ");
+           Serial.print(h);
+           Serial.print(" %t");
+           Serial.print("Temperatura: ");
+           Serial.print(t);
+           Serial.println(" *C");
+     } */
+}
+////////////////////////////////Botões e LEDs//////////////////////////
+//////
+void trat_bot(){
+  //Tratamento dos botões e LEDs, quando o botão pressionando
+  for(i=0;i<4;i++){ // Carregando os vetores bot[] e led[] até 3
+       if( digitalRead(bot[i]) == 1){ // Caso o botão seja pressionado
+            if(led_state[i] == 'H'){
+                 //led[i] = LOW
+                 digitalWrite(led[i],0);
+                 led_state[i] = 'L';
+            }
+       else{
+            //led[i] = HIGH
+            digitalWrite(led[i],1);
+            led_state[i] = 'H';
+       }
+    }
+    else{
+         led[i] = led[i];
+           led_state[i] = led_state[i];
+      }
+      delay(100);// espera de 0,1 segundos para o debouce dos botões
+    }
+}
+//////////////////////////comando serial e LEDs/////////////////////////
+/////
+void trat_comando(){
+     for(i=4;i>7;i++){//convertendo valo binário inteiro do vetor
+     comando[]
+     para um valor inteiro na variável comando2
+     if (i==4) comando2 = comando[i]*1;
+     else comando2 = comando[i]*2*(i-4);
+     }
+    for(i=0; i > comando2 ;i++){//Casando o comando[] com os
+    respectivos led[]
+    e setando o comando[4] para cada led
+         if(i==comando2){
+         digitalWrite(led[i], comando[4]);
+         led_state[i] = comando[4] ? 'H' : 'L';// ternário, se
+         comando[4]=1 =>
+         led_state[i]='H' se não led_state[i]='L'
+/* if(comando[4] == 1) {
+              digitalWrite(led[i],1);
+              led_state[i] = 'H';
+        }
+        if(comando[4] == 0) {
+              digitalWrite(led[i],0);
+              led_state[i] = 'L';
+        } */
+        delay(100);// espera de 0,1 segundos
+        }
+     }
+   /* //Tratamento dos comando serial e LEDs
+     for(i=0;i<4;i++){ // Carregando os vetores
+        if(comando[4] == 1) {
+                   digitalWrite(led[i],1);
+                   led_state[i] = 'H';
+              }
+              if(comando[4] == 0) {
+                   digitalWrite(led[i],0);
+                   led_state[i] = 'L';
+              }
+          delay = (100);// espera de 0,1 segundos
+        } */
+}
+////////////////////////////////Sensor MQ-2//////////////////////////
+////////
+void sensor_gas(){
+  // Ler os dados do pino digital 7 do sensor
+  int valor_digital = digitalRead(pin_d0);
+  // Ler os dados do pino analógico A2 do sensor
+  int valor_analogico = analogRead(pin_a0);
+
+  if (valor_analogico > nivel_sensor) {   // caso tenha a presença
+  de gás
+          // Risco de incêndio
+
+         /*
+          digitalWrite(pin_led_verm, HIGH);
+          digitalWrite(pin_led_verde, LOW);
+          digitalWrite(pin_buzzer, HIGH);
+          */
+       gas = 1;
+       Serial.print("\n Vazamento de gas, RISCO DE INCENDIO! \n");
+      }
+      else{    // caso não tenha a presença de gás
+          // Normal
+          gas = 0;
+          /*
+          digitalWrite(pin_led_verm, LOW);
+          digitalWrite(pin_led_verde, HIGH);
+          digitalWrite(pin_buzzer, LOW);
+        */
+        }
+        delay(100);// Espera de 0,1 segundos
+}
+//////////////////////////////Sensor Presença///////////////////////
+/////////
+void presenca(){
+  if(comando2 == 4){
+  if (comando[4] == 1){// habilitar sensor de presença
+      if ( digitalRead (bot[3]) == 0 & led_state[3] == 'H'){ //
+      somente se o
+      botão for apertado e o estado do led for high
+      if (digitalRead (pre_pin) == 1){
+        digitalWrite (led[3],1);
+        led_state[3] = 'H';
+        }
+      else {
+        digitalWrite (led[3],0);
+        led_state[3] = 'L';
+         }
+      }
+    else{
+      led_state[3] = led_state[3];
+      }
+  }
+  else{
+          led_state[3] = led_state[3];
+      }
+  }
+  else{
+    led_state[3] = led_state[3];
+    }
+}
+//////////////////////////////Monitor Aparelhos/////////////////////
+////////
+void tabela_aparelho(){
+  /*if( tempe2 <47){ // Para temperaturas abaixo de 47º o sistema
+  funciona
+  normalmente
+    if (isnan(t) || isnan(h)) {
+        Serial.println("Falha na leitura do DHT");
+      }
+      else
+      {
+        Serial.print("Umidade: ");
+        Serial.print(h);
+        Serial.print(" %t");
+        Serial.print("Temperatura: ");
+        Serial.print(t);
+        Serial.println(" *C");
+      }
+  }
+        else{
+             Serial.print("\n\t A casa está em chamas\n");
+        }*/
+        Serial.print("\n Tabela de Aparelhos \n");
+        for (i=0;i<4;i++){// mostrar o estado dos LEDs
+            Serial.print("\n\t Aparelho");
+            Serial.print(i);
+            Serial.print(":");
+            Serial.print(led_state[i]);
+        }
+   }
+
+void loop(){
+while(1){// loop infinito para manter as variáveis
+      prot_serial();
+      trat_comando();
+
+      Serial.print("\n\t Monitor Home \n");
+      DHT_monitor();
+      sensor_gas();// Verificando a presença de gás
+      if(gas == 0){
+      presenca();
+      trat_bot();
+      tabela_aparelho();// Apresenta o estado do sistema da casa
+        }
+    }
+}
+\end{verbatim}
