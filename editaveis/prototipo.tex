@@ -34,7 +34,11 @@
 \section{Representação da arquitetura}
 \par Tendo como objetivo conceber uma melhor compreensão o documento faz uso de diagramas que buscam demonstrar de forma visual todo o processo de geração e transmissão dos dados referente a casa no escopo pretendido.
 
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\caption{Diagrama de Sequência}
+\centering
+\includegraphics[width=10cm]{figuras/representacao_arquitetura}
+\end{figure}
 
 \subsection{Sequência de requisições}
 
@@ -48,7 +52,11 @@
 \par Todo o software responsável pelo gerenciamento dos sensores, atuadores e botões foram desenvolvidos na linguagem de programação do arduino, que é uma linguagem baseada em C, possuindo assim algumas nuances da estrutura e forma de organização do código.
 \par Em um programa codificado no arduino é necessário a definição de duas funções principais, sendo elas a função setup() e a função loop(). A primeira é uma função executada uma única vez ao ligar a placa, nela são definidas as principais variáveis, é feita a declaração dos pinos a serem usados pelo programa e todas as demais configurações que precisam ser realizadas apenas uma vez. Na função loop() são definidas todas as funções que ficarão em um loop infinito enquanto a placa estiver ativa.
 
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\caption{Fluxo de Dados}
+\centering
+\includegraphics[width=10cm]{figuras/fluxo_dados}
+\end{figure}
 
 \par Todo o código pode ser dividido em funções principais. No início é definido os pinos a serem utilizados na placa e as variáveis globais que podem vir a ser utilizadas por qualquer função do programa.
 \par Na função setup() é definido como os pinos declarados anteriormente serão utilizados (input ou output) e é realizada a configuração da comunicação serial a ser realizada com a placa do Raspberry.
@@ -61,7 +69,11 @@
 \par Na função trat\_bot() é realizado o tratamento dos botões para alterações do estado dos sensores (ativos ou inativos).
 \par Na função tabela\_aparelho() é realizada uma checagem geral de todos os dados obtidos, é realizado seu tratamento e envio desses ao usuário.
 
-\textcolor{red}{Inserir imagem}
+\begin{figure}[!h]
+\caption{Diagrama Esquemático do Circuito}
+\centering
+\includegraphics[width=\textwidth]{figuras/esquematico}
+\end{figure}
 
 \par De uma forma geral o Raspberry funcionara como uma forma de central conectando todos os demais dispositivos, na Figura 3 é demonstrada a comunicação serial estabelecida entre o arduino e o Raspberry para o envio dos dados e recebimento de solicitações, sendo demonstrado ainda a forma de conexão entre o arduino os sensores e os atuadores.
 \par O código-fonte do sistema encontra-se nos anexos deste relatório.
